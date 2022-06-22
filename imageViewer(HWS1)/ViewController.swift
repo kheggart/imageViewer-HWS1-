@@ -10,11 +10,30 @@
 
 import UIKit
 
+var pictures = [String]()
+
 class ViewController: UIViewController {
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //lets create a constant called FM that is assigned to FileManager.default. This is a data type that lets us work with the file system
+        let fm = FileManager.default
+        //the we will create another constant called path. This sets path to the resource path of our bundle in the app. Basically, it's saying, where are all our appls located?
+        let path = Bundle.main.resourcePath!
+        //then we create a constant called items. This containts everything at path. This returns a strings containing filenames.
+        let items = try! fm.contentsOfDirectory(atPath: path)
+        //Next we start a loop that checks to see if the items have a certain prefix. It they do, we will append them to the
+        for item in items {
+            //if item.hasPrefix("P") {
+            //this is my change. I didn't configure all the image files, so instead I am using the has suffic method. 
+            if item.hasSuffix("JPG") {
+                pictures.append(item)
+                print(pictures)
+            }
+        }
     }
 
 
