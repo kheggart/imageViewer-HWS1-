@@ -11,6 +11,7 @@
 import UIKit
 
 var pictures = [String]()
+var imageDescription = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Test 6", "Test 7", "Test 8", "Test 9", "Test 10"]
 
 class ViewController: UITableViewController {
     
@@ -47,6 +48,11 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+            vc.selectedImage = pictures[indexPath.row]
+            vc.selectedImageText = imageDescription[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
     
