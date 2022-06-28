@@ -19,6 +19,9 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Picture Viewer"
+        navigationController?.navigationBar.prefersLargeTitles = true
         // Do any additional setup after loading the view.
         //lets create a constant called FM that is assigned to FileManager.default. This is a data type that lets us work with the file system
         let fm = FileManager.default
